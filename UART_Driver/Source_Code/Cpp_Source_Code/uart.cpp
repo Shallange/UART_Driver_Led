@@ -25,7 +25,7 @@ GPIOA->AFR[0] |= 0x7700; //Sätter vi bitarna 8-11 samt 12-15 till formatet 0111
 /* Konstruktion av enhetens kommunikation avslutas */
 
 // Konfiguration utav UART
-USART2->BRR = 0x0683; //Sätter vi standard baud-rate med hjälp av hexadecimalen 0x0683 (9600bps)
+USART2->BRR = 0x0683; //Sätter vi standard baud-rate med hjälp av hexadecimalen 0x0683 (9600bps) eftrsom vi inte beöver högre baudrate med tanke på att vi skickar endast 8 bitar i taget
 USART2->CR1 = 0x000C; //Sätter vi tx och rx till att arbeta i 8 bitars data. (8 bitars data, 1 stop bit, ingen paritet)-
 //Bit 12(M) är oförändad och satt till 0 för 8 bitars läge, 0x000C sätter bit 2(RE) och bit 3(TE) till 1.
 USART2->CR2 = 0x000; //Nollställer CR2, Detta är gjort för att säkerthetsälla att inget i CR2 är akiverat sedan tidigare som kan störa eller skapa konflikter.
